@@ -1,0 +1,11 @@
+sidecarContainers:
+- name: http-tunnel
+  image: jmferrer/http-tunnel
+  command:
+  - /bin/bash
+  - -c
+  - hts --no-daemon -F localhost:5671 80
+  ports:
+  - containerPort: 80
+    protocol: TCP
+    name: http

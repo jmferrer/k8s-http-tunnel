@@ -1,0 +1,11 @@
+sidecarContainers:
+- name: http-tunnel
+  image: jmferrer/http-tunnel
+  command:
+  - /bin/bash
+  - -c
+  - htc --no-daemon -F 5671 ingress.k8s.local:80
+  ports:
+  - containerPort: 80
+    protocol: TCP
+    name: http
